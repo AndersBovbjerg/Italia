@@ -7,7 +7,7 @@
 <meta name="description" content="Det Italienske Pizzaria & Bøfhus på Torvestræde 4 i Skive. Pizza fra ovnen, bøffer fra grillen og italienske klassikere. Bestil bord på 97 52 05 19.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Archivo:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#3E1C18;        /* okseblodsrød / bordeaux fra logoet */
@@ -25,7 +25,7 @@
     --maxw:1120px;
     --gutter:clamp(20px,5vw,56px);
   }
-´
+
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
@@ -141,34 +141,14 @@
   .hero .hero-meta b{color:var(--cream-text);font-weight:600;}
   .hero .hero-meta svg{width:16px;height:16px;color:var(--gold-soft);}
 
-  /* quiet decorative accent (no logo) balancing the hero */
-  .hero-accent{
-    justify-self:center;
-    width:min(100%,380px);
-    aspect-ratio:5/6;
-    position:relative;
-    border-radius:16px;
-    overflow:hidden;
-    border:1px solid rgba(196,162,76,.28);
-    background:
-      radial-gradient(120% 90% at 30% 14%, rgba(199,123,84,.34), transparent 60%),
-      linear-gradient(160deg, rgba(190,58,43,.20), rgba(46,21,18,.22));
-    box-shadow:0 26px 60px -30px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06);
-  }
-  .hero-accent::before{
-    content:"";position:absolute;inset:0;opacity:.13;
-    background-image:
-      linear-gradient(rgba(247,234,201,.9) 50%, transparent 50%),
-      linear-gradient(90deg, rgba(247,234,201,.9) 50%, transparent 50%);
-    background-size:26px 26px;
-  }
-  .hero-accent::after{
-    content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    width:46%;aspect-ratio:1;border-radius:50%;
-    border:1px solid rgba(247,234,201,.38);
-    box-shadow:0 0 0 10px rgba(247,234,201,.05);
-  }
-  @media(max-width:880px){ .hero-accent{display:none;} }
+  /* TIP 2 — showets stjerne: hero-foto som svævende tallerken med guld-dobbeltring */
+  .hero-star{justify-self:center;position:relative;width:min(100%,400px);aspect-ratio:1;display:flex;align-items:center;justify-content:center;}
+  .star-glow{position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%, rgba(199,123,84,.55), rgba(190,58,43,.18) 55%, transparent 72%);filter:blur(6px);}
+  .star-plate{position:relative;width:88%;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 5px rgba(247,234,201,.95), 0 0 0 7px rgba(176,134,43,.55), 0 34px 70px -24px rgba(0,0,0,.75);animation:starFloat 7s ease-in-out infinite;}
+  .star-plate img{width:100%;height:100%;object-fit:cover;}
+  .star-badge{position:absolute;bottom:7%;right:1%;background:var(--tomato);color:#fff;font-family:"Archivo",Arial,sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border-radius:999px;transform:rotate(-4deg);box-shadow:0 10px 24px -8px rgba(0,0,0,.5);}
+  @keyframes starFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @media(max-width:880px){ .hero-star{display:none;} }
 
   .btn{
     display:inline-flex;align-items:center;gap:10px;
@@ -285,6 +265,50 @@
   .mobile-sheet .btn{margin-top:22px;justify-content:center;}
 
   :focus-visible{outline:3px solid var(--gold-soft);outline-offset:3px;border-radius:2px;}
+
+  /* ============================================================
+     DESIGN-TIPS 1,3,4,5 (tip 2 = .hero-star ovenfor)
+     ============================================================ */
+
+  /* TIP 1 — Archivo som funktionel sans: KUN UI/labels/tal. Brødtekst forbliver serif. */
+  .eyebrow{font-family:"Archivo",Arial,sans-serif;letter-spacing:.2em;font-size:.7rem;}
+  nav.main a{font-family:"Archivo",Arial,sans-serif;font-size:.78rem;letter-spacing:.16em;}
+  .btn{font-family:"Archivo",Arial,sans-serif;font-size:.95rem;letter-spacing:.03em;}
+  .top-phone{font-family:"Archivo",Arial,sans-serif;}
+  .dish .d-price{font-family:"Archivo",Arial,sans-serif;font-size:.98rem;}
+  footer .f-hours span{font-family:"Archivo",Arial,sans-serif;font-size:.85rem;}
+  .f-directions{font-family:"Archivo",Arial,sans-serif;letter-spacing:.05em;font-size:.85rem;}
+
+  /* TIP 3 — visuelt rim: logoets ovale form + gingham gentages */
+  .btn{border-radius:999px;}
+  .hamburger{border-radius:999px;}
+  .eyebrow::before{content:"";display:inline-block;width:20px;height:11px;border:1.5px solid currentColor;border-radius:50%;margin-right:9px;vertical-align:-1px;opacity:.7;}
+  .frame,.f-map{outline:1px solid rgba(176,134,43,.5);outline-offset:5px;}
+  .menu-block > .block-title .rule{background:repeating-linear-gradient(90deg, rgba(196,162,76,.5) 0 10px, transparent 10px 20px);height:2px;}
+  footer h4::after{content:"";display:block;width:44px;height:4px;margin-top:8px;background:repeating-linear-gradient(90deg, rgba(190,58,43,.7) 0 6px, transparent 6px 12px);}
+
+  /* TIP 4 — dybde: subtil kornet støj på mørke flader + lagdelte skygger */
+  footer{position:relative;}
+  .hero::before,.menu::before,footer::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.055;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+  .hero .wrap{position:relative;z-index:1;}
+  .btn-primary{box-shadow:0 6px 18px rgba(158,46,34,.35), inset 0 1px 0 rgba(255,255,255,.22);}
+  .frame{box-shadow:0 24px 48px -20px rgba(62,28,24,.5);}
+  .f-map{box-shadow:0 18px 40px -16px rgba(0,0,0,.8);}
+  .topbar{backdrop-filter:blur(12px);box-shadow:0 8px 24px -18px rgba(62,28,24,.35);}
+  .gingham{box-shadow:inset 0 2px 5px rgba(62,28,24,.18), inset 0 -2px 5px rgba(62,28,24,.12);}
+
+  /* TIP 5 — opacitet som hierarki (samme farvetone, faldende alpha) */
+  .hero p.tag{color:rgba(245,238,221,.78);}
+  .hero .hero-meta{color:rgba(245,238,221,.62);}
+  .hero .hero-meta b{color:#F5EEDD;}
+  .eyebrow{opacity:.85;}
+  .dish .d-desc{color:rgba(243,231,200,.62);}
+  .menu-foot{color:rgba(243,231,200,.55);}
+  .selskaber p{color:rgba(62,28,24,.75);}
+  footer p,footer a{color:rgba(245,238,221,.78);}
+  footer .f-hours span{color:rgba(245,238,221,.62);}
+  footer .f-hours span em{color:rgba(245,238,221,.62);}
+  footer .legal{color:rgba(245,238,221,.45);}
 </style>
 </head>
 <body>
@@ -334,7 +358,7 @@
     <div class="hero-copy">
       <span class="eyebrow">Det Italienske &middot; Skive</span>
       <h1>Pizza fra ovnen.<em>Bøffer fra grillen.</em></h1>
-      <p class="tag">Nyd en dejlig aften i hyggelige omgivelser med ægte italiensk stemning, lækre retter og gode vine.</p>
+      <p class="tag">Italienske klassikere, pizza og danske bøffer &mdash; på Torvestræde midt i Skive.</p>
       <div class="actions">
         <a class="btn btn-primary" href="tel:+4597520519">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 4.5 6.2 2 2 0 0 1 6.5 4Z" fill="currentColor"/></svg>
@@ -353,7 +377,11 @@
         </span>
       </div>
     </div>
-    <div class="hero-accent" aria-hidden="true"></div>
+    <div class="hero-star" aria-hidden="true">
+      <div class="star-glow"></div>
+      <div class="star-plate"><img src="assets/gallery-mad.jpg" alt=""></div>
+      <span class="star-badge">Fra grillen</span>
+    </div>
   </div>
 </section>
 <div class="gingham" aria-hidden="true"></div>

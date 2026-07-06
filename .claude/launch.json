@@ -2,16 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "italiensk-site",
+      "name": "italia",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4599", "--directory", "site"],
+      "runtimeArgs": ["-m", "http.server", "4599", "--directory", "."],
       "port": 4599
-    },
-    {
-      "name": "italia-v6",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4601", "--directory", "Italia"],
-      "port": 4601
     }
   ]
 }
